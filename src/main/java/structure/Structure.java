@@ -1,6 +1,7 @@
 package structure;
 
 import block.Block;
+import block.CompositeBlock;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,4 +12,6 @@ public interface Structure {
     List<Block> findBlocksByMaterial(String material);
 
     int count();
+    int countBlock(Block block);
+    int countBlock(CompositeBlock compositeBlock);
 }

@@ -1,6 +1,7 @@
 package structure;
 
 import block.Block;
+import block.CompositeBlock;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,5 +37,15 @@ public class Wall implements Structure{
     @Override
     public int count() {
         return blocks.size();
+    }
+
+    @Override
+    public int countBlock(Block block) {
+        return 0;
+    }
+
+    @Override
+    public int countBlock(CompositeBlock compositeBlock) {
+        return 0;
     }
 }
