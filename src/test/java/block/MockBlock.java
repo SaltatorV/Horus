@@ -14,6 +14,10 @@ public class MockBlock implements Block{
         return new MockBlock("black", "wood");
     }
 
+    public static Block create(String color, String material) {
+        return new MockBlock(color, material);
+    }
+
     @Override
     public String getColor() {
         return color;

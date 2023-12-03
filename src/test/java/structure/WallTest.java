@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WallTest {
 
@@ -59,4 +60,36 @@ public class WallTest {
         //then
         assertEquals(2, wall.count());
     }
+
+    @Test
+    public void testFindBlockByColorReturnEmpty() {
+        //given
+        List<Block> blocks = List.of();
+        var wall = Wall.create(blocks);
+
+        //when
+        var block = wall.findBlockByColor("red");
+
+        //then
+        assertTrue(block.isEmpty());
+    }
+
+    @Test
+    public void testFindBlockByColor() {
+        //given
+        List<Block> blocks = List.of(MockBlock.create("grey",
+                "stone"), MockBlock.create("black", "wood"));
+
+        var wall = Wall.create(blocks);
+
+        //when
+        var block = wall.findBlockByColor("grey");
+
+        //then
+        assertTrue(block.isPresent());
+        assertEquals("grey", block.get().getColor());
+        assertEquals("stone", block.get().getMaterial());
+    }
+
+    
 }
