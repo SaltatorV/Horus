@@ -10,7 +10,7 @@ public class MockBlock implements Block{
         this.material = material;
     }
 
-    public static MockBlock createDefault() {
+    public static Block createDefault() {
         return new MockBlock("black", "wood");
     }
 
