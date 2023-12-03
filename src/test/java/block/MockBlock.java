@@ -32,6 +32,6 @@ public class MockBlock implements Block{
 
     @Override
     public int accept(Structure structure) {
-        return 1;
+        return structure.countBlock(this);
     }
 }

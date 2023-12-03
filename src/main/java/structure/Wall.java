@@ -44,7 +44,7 @@ public class Wall implements Structure{
 
     @Override
     public int countBlock(Block block) {
-        return 0;
+        return 1;
     }
 
     @Override
