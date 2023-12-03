@@ -12,7 +12,7 @@ public class WallTest {
 
 
     @Test
-    public void testWallCount() {
+    public void testWallCountIs0() {
         //given
         List<Block> blocks = List.of();
         var wall = Wall.create(blocks);
@@ -26,7 +26,7 @@ public class WallTest {
     }
 
     @Test
-    public void testCreateWall() {
+    public void testCreateEmptyWall() {
         //given
         List<Block> blocks = List.of();
 
