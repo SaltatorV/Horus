@@ -10,6 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WallTest {
 
+
+
+    @Test
+    public void testWallCount() {
+        //given
+        List<Block> blocks = List.of();
+        var wall = Wall.create(blocks);
+
+        //when
+        var count = wall.count();
+
+        //then
+        assertEquals(0, count);
+
+    }
+
     @Test
     public void testCreateWall() {
         //given
@@ -21,5 +37,4 @@ public class WallTest {
         //then
         assertEquals(0, wall.count());
     }
-
 }
