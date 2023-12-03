@@ -123,11 +123,8 @@ public class WallTest {
         assertListContainOnlySpecificMaterial(blockList, materialToFind);
     }
 
-
-
     private void assertListContainOnlySpecificMaterial(List<Block> blocks, String materialToFind) {
         blocks
                 .forEach(block -> assertEquals(materialToFind, block.getMaterial()));
     }
-    
 }
