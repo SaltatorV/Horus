@@ -3,7 +3,6 @@ package block;
 import structure.Structure;
 
 public class MockBlock implements Block{
-
     private final String color;
     private final String material;
 

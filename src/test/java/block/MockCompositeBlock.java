@@ -5,7 +5,6 @@ import structure.Structure;
 import java.util.List;
 
 public class MockCompositeBlock implements CompositeBlock{
-
     private List<Block> blocks;
     private final String color;
     private final String material;
