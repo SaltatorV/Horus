@@ -2,15 +2,16 @@ package structure;
 
 import block.Block;
 import block.MockBlock;
+import block.MockCompositeBlock;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WallTest {
-
     @Test
     public void testWallCountIs0() {
         //given
@@ -35,6 +36,37 @@ public class WallTest {
 
         //then
         assertEquals(2, count);
+    }
+
+    @Test
+    public void testWallCountWithCompositeBlockIs3() {
+        //given
+        List<Block> blocks = Arrays.asList(MockBlock.createDefault(), MockBlock.createDefault());
+        Block box = MockCompositeBlock.create("black", "wood", blocks);
+        var wall = Wall.create(List.of(box));
+
+        //when
+        var count = wall.count();
+
+        //then
+        assertEquals(3, count);
+    }
+
+    @Test
+    public void testWallCountWithNestedCompositeBlock() {
+        //given
+        List<Block> blocks = Arrays.asList(MockBlock.createDefault(), MockBlock.createDefault());
+        Block box = MockCompositeBlock.create("black", "wood", blocks);
+        Block multiBox = MockCompositeBlock.create("black", "wood",
+                Arrays.asList(MockBlock.createDefault(), box));
+
+        var wall = Wall.create(List.of(multiBox));
+
+        //when
+        var count = wall.count();
+
+        //then
+        assertEquals(5, count);
     }
 
     @Test

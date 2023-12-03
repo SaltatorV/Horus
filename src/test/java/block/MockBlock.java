@@ -1,7 +1,8 @@
 package block;
 
-public class MockBlock implements Block{
+import structure.Structure;
 
+public class MockBlock implements Block{
     private final String color;
     private final String material;
 
@@ -26,5 +27,10 @@ public class MockBlock implements Block{
     @Override
     public String getMaterial() {
         return material;
+    }
+
+    @Override
+    public int accept(Structure structure) {
+        return structure.countBlock(this);
     }
 }
