@@ -46,7 +46,7 @@ public class Wall implements Structure{
 
     @Override
     public int countBlock(CompositeBlock compositeBlock) {
-        return calculate(compositeBlock.getBlocks());
+        return 1 + calculate(compositeBlock.getBlocks());
 
     }
 

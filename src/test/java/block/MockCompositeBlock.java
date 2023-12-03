@@ -32,7 +32,7 @@ public class MockCompositeBlock implements CompositeBlock{
 
     @Override
     public int accept(Structure visitor) {
-        return 1 + visitor.countBlock(this);
+        return visitor.countBlock(this);
     }
 
     @Override
