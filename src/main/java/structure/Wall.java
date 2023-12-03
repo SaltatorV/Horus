@@ -4,6 +4,7 @@ import block.Block;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Wall implements Structure{
     private List<Block> blocks;
@@ -26,7 +27,10 @@ public class Wall implements Structure{
 
     @Override
     public List<Block> findBlocksByMaterial(String material) {
-        return null;
+        return blocks
+                .stream()
+                .filter(block -> block.getMaterial().equals(material))
+                .collect(Collectors.toList());
     }
 
     @Override

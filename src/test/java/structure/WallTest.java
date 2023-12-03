@@ -77,8 +77,8 @@ public class WallTest {
     @Test
     public void testFindBlockByColor() {
         //given
-        List<Block> blocks = List.of(MockBlock.create("grey",
-                "stone"), MockBlock.create("black", "wood"));
+        List<Block> blocks = List.of(MockBlock.create("grey", "stone"),
+                MockBlock.create("black", "wood"));
 
         var wall = Wall.create(blocks);
 
@@ -91,5 +91,44 @@ public class WallTest {
         assertEquals("stone", block.get().getMaterial());
     }
 
+    @Test
+    public void testFindBlocksByMaterialReturnEmpty() {
+        //given
+        List<Block> blocks = List.of();
+        var wall = Wall.create(blocks);
+
+        //when
+        var blockList = wall.findBlocksByMaterial("wood");
+
+        //then
+        assertEquals(0, blockList.size());
+    }
+
+    @Test
+    public void testFindBlocksByMaterialReturn2() {
+        //given
+        String materialToFind = "stone";
+
+        List<Block> blocks = List.of( MockBlock.create("grey", "stone"),
+                MockBlock.create("black", "stone"),
+                MockBlock.create("black", "wood"));
+
+        var wall = Wall.create(blocks);
+
+        //when
+        var blockList = wall.findBlocksByMaterial(materialToFind);
+
+        //then
+        assertEquals(2, blockList.size());
+        assertListContainOnlySpecificMaterial(blockList, materialToFind);
+    }
+
+
+
+    private void assertListContainOnlySpecificMaterial(List<Block> blocks, String materialToFind) {
+        blocks
+                .stream()
+                .forEach(block -> assertEquals(materialToFind, block.getMaterial()));
+    }
     
 }
