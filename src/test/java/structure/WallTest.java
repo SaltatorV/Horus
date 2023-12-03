@@ -127,7 +127,6 @@ public class WallTest {
 
     private void assertListContainOnlySpecificMaterial(List<Block> blocks, String materialToFind) {
         blocks
-                .stream()
                 .forEach(block -> assertEquals(materialToFind, block.getMaterial()));
     }
     
