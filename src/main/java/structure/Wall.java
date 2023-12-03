@@ -36,7 +36,10 @@ public class Wall implements Structure{
 
     @Override
     public int count() {
-        return blocks.size();
+        return blocks
+                .stream()
+                .mapToInt(block -> block.accept(this))
+                .sum();
     }
 
     @Override
