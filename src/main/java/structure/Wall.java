@@ -36,10 +36,7 @@ public class Wall implements Structure{
 
     @Override
     public int count() {
-        return blocks
-                .stream()
-                .mapToInt(block -> block.accept(this))
-                .sum();
+        return calculate(blocks);
     }
 
     @Override
@@ -49,8 +46,12 @@ public class Wall implements Structure{
 
     @Override
     public int countBlock(CompositeBlock compositeBlock) {
-        return compositeBlock
-                .getBlocks()
+        return calculate(compositeBlock.getBlocks());
+
+    }
+
+    private int calculate(List<Block> blocks) {
+        return blocks
                 .stream()
                 .mapToInt(block -> block.accept(this))
                 .sum();
