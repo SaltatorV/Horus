@@ -47,4 +47,16 @@ public class WallTest {
         //then
         assertEquals(0, wall.count());
     }
+
+    @Test
+    public void testCreateWallWith2Elements() {
+        //given
+        List<Block> blocks = List.of(MockBlock.createDefault(), MockBlock.createDefault());
+
+        //when
+        var wall = Wall.create(blocks);
+
+        //then
+        assertEquals(2, wall.count());
+    }
 }
